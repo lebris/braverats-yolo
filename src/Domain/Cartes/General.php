@@ -6,6 +6,11 @@ namespace BraveRats\Domain\Cartes;
 
 class General extends AbstractCarte
 {
-    private const
+    public const
         VALUE = 6;
+
+    public function value(): int
+    {
+        return self::VALUE;
+    }
 }

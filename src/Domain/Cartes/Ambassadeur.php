@@ -6,6 +6,11 @@ namespace BraveRats\Domain\Cartes;
 
 class Ambassadeur extends AbstractCarte
 {
-    private const
+    public const
         VALUE = 4;
+
+    public function value(): int
+    {
+        return self::VALUE;
+    }
 }

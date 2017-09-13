@@ -6,6 +6,11 @@ namespace BraveRats\Domain\Cartes;
 
 class Princesse extends AbstractCarte
 {
-    private const
+    public const
         VALUE = 1;
+
+    public function value(): int
+    {
+        return self::VALUE;
+    }
 }

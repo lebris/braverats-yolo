@@ -6,6 +6,11 @@ namespace BraveRats\Domain\Cartes;
 
 class Musicien extends AbstractCarte
 {
-    private const
+    public const
         VALUE = 0;
+
+    public function value(): int
+    {
+        return self::VALUE;
+    }
 }

@@ -7,4 +7,6 @@ namespace BraveRats\Domain;
 interface Partie
 {
     public function play();
+
+    public function winner(): ?Joueur;
 }

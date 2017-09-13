@@ -9,8 +9,9 @@ use BraveRats\Domain\Joueur;
 
 abstract class AbstractCarte implements Carte
 {
-    private
-        $joueur;
+    protected
+        $joueur,
+        $modificateursCurrentManche;
 
     public function __construct(Joueur $joueur)
     {
@@ -21,4 +22,23 @@ abstract class AbstractCarte implements Carte
     {
         return $this->joueur;
     }
+
+    public function computeValueWithModificateurs()
+    {
+        $value = $this->value();
+
+        foreach($this->joueur->modificateursCurrentManche() as $modificateur)
+        {
+            $value = $modificateur->apply($value);
+        }
+
+        return $value;
+    }
+
+    public function is(int $value): bool
+    {
+        return $this->value() === $value;
+    }
+
+    abstract public function value(): int;
 }

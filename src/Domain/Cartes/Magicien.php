@@ -6,6 +6,11 @@ namespace BraveRats\Domain\Cartes;
 
 class Magicien extends AbstractCarte
 {
-    private const
+    public const
         VALUE = 5;
+
+    public function value(): int
+    {
+        return self::VALUE;
+    }
 }

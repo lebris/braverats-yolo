@@ -23,22 +23,29 @@ class CarteCollection implements \IteratorAggregate, \Countable
     public function __construct(Joueur $joueur)
     {
         $this->cartes = [
-            new Ambassadeur($joueur),
-            new Assassin($joueur),
-            new Espion($joueur),
-            new General($joueur),
-            new Magicien($joueur),
-            new Musicien($joueur),
-            new Prince($joueur),
-            new Princesse($joueur),
+            'Ambassadeur' => new Ambassadeur($joueur),
+            'Assassin' => new Assassin($joueur),
+            'Espion' => new Espion($joueur),
+            'General' => new General($joueur),
+            'Magicien' => new Magicien($joueur),
+            'Musicien' => new Musicien($joueur),
+            'Prince' => new Prince($joueur),
+            'Princesse' => new Princesse($joueur),
         ];
     }
 
-    public function add(Carte $carte): self
+    public function getByName(string $name): ?Carte
     {
-        $this->cartes[] = $carte;
+        if(! array_key_exists($name, $this->cartes))
+        {
+            return null;
+        }
 
-        return $this;
+        $carte = $this->cartes[$name];
+
+        unset($this->cartes[$name]);
+
+        return $carte;
     }
 
     public function getIterator(): \Iterator

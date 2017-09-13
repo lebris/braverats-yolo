@@ -4,13 +4,12 @@ declare(strict_types = 1);
 
 namespace BraveRats\Domain\Modificateurs;
 
-use BraveRats\Domain\Carte;
-use BraveRats\Domain\Modificateur;
+use BraveRats\Domain\Cartes\Modificateur;
 
 class NullModificateur implements Modificateur
 {
-    public function apply(Carte $carte)
+    public function apply(int $value)
     {
-        return $carte->value();
+        return $value;
     }
 }

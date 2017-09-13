@@ -4,14 +4,19 @@ declare(strict_types = 1);
 
 namespace BraveRats\Domain\Cartes;
 
-use BraveRats\Domain\Manche;
-use BraveRats\Domain\Modificateur;
-use BraveRats\Domain\Modificateurs\NullModificateur;
+use BraveRats\Domain\Carte;
+use BraveRats\Domain\Joueur;
 
 class Assassin extends AbstractCarte
 {
-    private const
+    public const
         VALUE = 3;
+
+    public function value(): int
+    {
+        return self::VALUE;
+    }
+
     //
     // private
     //     $modificateur;
